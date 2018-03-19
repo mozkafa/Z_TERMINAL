@@ -1,0 +1,19 @@
+<mvc:View controllerName="com.btc.terminal.controller.NewWholeSalesAudit" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page navButtonPress="onBack" showNavButton="true" title="{i18n>mainViewSTNewWA}">
+				<content>
+					<FlexBox alignItems="Center" height="100%" justifyContent="Center" width="100%">
+						<f:SimpleForm columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"
+							layout="ResponsiveGridLayout">
+							<f:content>
+								<SearchField id="idInpBarcode" class="sapUiSmallMargin" search="onBarcodeSearch" maxLength="18" placeholder="Picking List Barcode" showSearchButton="false" value="{wholeSalesModel>/Barcode}" width="90%"/>
+							</f:content>
+						</f:SimpleForm>
+					</FlexBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

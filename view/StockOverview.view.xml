@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.StockOverview"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Stock Overview">
+				<content>
+					<VBox height="100%" justifyContent="Center" width="100%">
+						<items>
+							<f:SimpleForm id="idSimpleFormStock" class="myDisplayForm" columnsL="2" columnsM="2" editable="true" emptySpanL="4" emptySpanM="4"
+								labelSpanL="4" labelSpanM="4" layout="ResponsiveGridLayout" maxContainerCols="2">
+								<f:content>
+									
+									<Input placeholder="Material..." id="idInpStockMat" liveChange="onMaterialChange" value="{stockOverview>/matnr}">
+											<layoutData>
+											<l:GridData span="L12 M4 S12"/>
+										</layoutData>
+									</Input>
+									<Input placeholder="Plant..." id="idInpStockPlant" value="{stockOverview>/plant}" >
+										<layoutData>
+											<l:GridData span="L12 M4 S7"/>
+										</layoutData>
+									</Input>
+									<Input placeholder="Storage Type" id="idInpStockStorage" value="{stockOverview>/storageType}" >
+										<layoutData>
+											<l:GridData span="L12 M4 S5"/>
+										</layoutData>
+									</Input>
+									<Label text=""/>
+									<Button text="Storage Bin" type="Emphasized" press="onStorageBinPressed">
+										<layoutData>
+											<l:GridData span="L6 M6 S6"/>
+										</layoutData>
+									</Button>
+								
+								</f:content>
+							</f:SimpleForm>
+						</items>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

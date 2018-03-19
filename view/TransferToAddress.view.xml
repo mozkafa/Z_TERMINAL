@@ -1,0 +1,76 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.TransferToAddress"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBackToAddress" showNavButton="true" title="{i18n>TransferToAddres}">
+				<content>
+					<FlexBox height="100%" alignItems="Start" justifyContent="Center" width="100%" class="sapUiNoMargin">
+						<VBox class="sapUiNoMargin">
+							<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="12" labelSpanM="12" labelSpanS="4" adjustLabelSpan="true"
+								emptySpanL="0" emptySpanS="0" emptySpanM="0" columnsL="3" columnsM="3" class="myDisplayForm sapUiNoMargin">
+								<f:content>
+									<Text class="boldText" textAlign="Center" text="Address:{TransferAddressModel>/Lgpla} / Material:{TransferAddressModel>/Matnr}" >
+										<layoutData>
+											<l:GridData span="L4 M4 S12"/>
+										</layoutData>
+									</Text>
+									<Input value="{TransferAddressModel>/Maktx}" enabled="false">
+										<layoutData>
+											<l:GridData span="L4 M4 S12"/>
+										</layoutData>
+									</Input>
+									<Label class="sapUiSmallMarginTop" design="Bold" textAlign="Begin" text="Storage Unit">
+										<layoutData>
+											<l:GridData span="L4 M4 S4"/>
+										</layoutData>
+									</Label>
+									<Input value="{TransferAddressModel>/Lenum}" enabled="false">
+										<layoutData>
+											<l:GridData span="L4 M4 S5"/>
+										</layoutData>
+									</Input>
+									<Label  class="sapUiSmallMarginTop" design="Bold" text="Available Q."/>
+									<Input  value="{TransferAddressModel>/Verme} {TransferAddressModel>/Meins}"  enabled="false">
+										<layoutData>
+											<l:GridData span="L8 M8 S4"/>
+										</layoutData>
+									</Input>
+									<Input value="{TransferAddressModel>/Meinh} / {TransferAddressModel>/Umrez}" enabled="false">
+										<layoutData>
+											<l:GridData span="L4 M4 S4"/>
+										</layoutData>
+									</Input>
+									<Label  class="sapUiSmallMarginTop" design="Bold" visible="{transferAddressViewModel>/LgplaFound}" text="Default Address">
+										<layoutData>
+											<l:GridData span="L4 M4 S5"/>
+										</layoutData>
+									</Label>
+									<Input  value="{TransferAddressModel>/LgpladValid}" visible="{transferAddressViewModel>/LgplaFound}"  enabled="false">
+										<layoutData>
+											<l:GridData span="L8 M8 S4"/>
+										</layoutData>
+									</Input>
+									<Input id="idInpMoveQty" value="{TransferAddressModel>/MoveQty}" change="onQuantityChange" type="Number" placeholder="Move Quantity" enabled="true" liveChange="onMoveQuantityChange">
+										<layoutData>
+											<l:GridData span="L4 M4 S12"/>
+										</layoutData>
+									</Input>
+									<SearchField placeholder="Destination Address" id="idInpStorageDest" maxLength="10" value="{TransferAddressModel>/Lgplad}" showSearchButton="false" liveChange="onDestinationAddressChange" search="onDestAddressEnter" >
+										<layoutData>
+											<l:GridData span="L4 M4 S12"/>
+										</layoutData>
+									</SearchField>
+								</f:content>
+							</f:SimpleForm>
+							<l:Grid defaultSpan="L12 M12 S12">
+								<l:content>
+									<Button class="sapUiNoMargin" width="100%" text="Transfer" press="onTransfer" enabled="{transferAddressViewModel>/transferButtonEnabled}"></Button>
+								</l:content>
+							</l:Grid>
+						</VBox>
+					</FlexBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

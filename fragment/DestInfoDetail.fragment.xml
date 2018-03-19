@@ -1,0 +1,128 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+						xmlns:f="sap.ui.layout.form"
+						xmlns:l="sap.ui.layout"
+						xmlns="sap.m">
+						<Dialog showHeader="false">
+							<content>
+						<FlexBox
+							height="100%"
+							alignItems="Center"
+							justifyContent="Center"
+							class="sapUiNoMargin"
+							width = "100%">
+						<VBox class="sapUiNoMargin">
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="12"
+							labelSpanM="12"
+							labelSpanS="6"
+							class="myDisplayForm sapUiNoMargin"
+							adjustLabelSpan="false"
+							emptySpanL="0"
+							emptySpanM="0"
+							columnsL="3"
+							columnsM="3">
+							<f:content>
+								<!--title="Dest Info."-->
+								<!--<Label design="Bold" text="Dest Info."></Label>-->
+								<Label  text="Whn">
+									<layoutData>
+										<l:GridData span="L12 M12 S2" />
+									</layoutData>
+								</Label> 
+								<Input value="{putAwayModel>/Lgnum}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S3" />
+									</layoutData>
+								</Input>
+								<Label  text="Plnt">
+									<layoutData>
+										<l:GridData span="L12 M12 S2" />
+									</layoutData>
+								</Label> 
+								<Input value="{putAwayModel>/Werks}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S5" />
+									</layoutData>
+								</Input>
+								<Label  text="Sloc">
+									<layoutData>
+										<l:GridData span="L12 M12 S2" />
+									</layoutData>
+								</Label> 
+								<Input value="{putAwayModel>/Lgort}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S10" />
+									</layoutData>
+								</Input>
+								
+								
+								<Label text="TO Num.">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Label> 
+								
+								<Input value="{putAwayModel>/Btanr}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S6" />
+									</layoutData>
+								</Input>
+								<Input value="{putAwayModel>/Anzqu}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S2" />
+									</layoutData>
+								</Input>
+							</f:content>
+						</f:SimpleForm>
+							<!--title="Material Information"-->
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="12"
+							labelSpanM="12"
+							adjustLabelSpan="false"
+							emptySpanL="0"
+							class="myDisplayForm sapUiNoMargin"
+							emptySpanM="0"
+							columnsL="1"
+							columnsM="1">
+							<f:content>
+								<Label design="Bold"  text="Material" />
+								<Input value="{putAwayModel>/Matnr}" enabled="false" >
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								<Input value="{putAwayModel>/Maktx}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								<Label text="Dest .qty">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Label> 
+								<Input value="{putAwayModel>/Meins}" textAlign="Begin" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S8" />
+									</layoutData>
+								</Input>
+								<Input value="{path:'putAwayModel>/Einme' , formatter : '.formatter.setEinme'}" enabled="false" textAlign ="End">
+									<layoutData>
+										<l:GridData span="L2 M2 S12" />
+									</layoutData>
+								</Input>
+								
+							</f:content>
+						</f:SimpleForm>
+						</VBox>
+					</FlexBox>
+					</content>
+					<beginButton>
+						<Button text="Close" press="closeDetailDialog"/>
+					</beginButton>
+					</Dialog>
+</core:FragmentDefinition>

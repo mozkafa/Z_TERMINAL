@@ -1,0 +1,115 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="com.btc.terminal.controller.DestinationDiff"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Destination Difference">
+				<content>
+				<FlexBox
+							height="100%"
+							alignItems="Center"
+							justifyContent="Center"
+							width = "100%">
+						<VBox class="sapUiSmallMargin">
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="12"
+							labelSpanM="12"
+							adjustLabelSpan="false"
+							emptySpanL="0"
+							emptySpanM="0"
+							class="myDisplayForm"
+							columnsL="3"
+							columnsM="3">
+							<f:content>
+								<!--title="Dest Info."-->
+								<Label design="Bold" textAlign="Begin"  text="TO Num." >
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Label> 
+								
+								<Input value="{putAwayModel>/Btanr}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S8" />
+									</layoutData>
+								</Input>
+								<Input value="{putAwayModel>/Anzqu}"  enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Input>
+								
+								<Label design="Bold" class ="sapUiNoMargin"   text="Material" />
+								<Input value="{putAwayModel>/Matnr}" enabled="false" >
+									<layoutData>
+										<l:GridData span="L12 M12 S6" />
+									</layoutData>
+								</Input>
+								<Input value="{putAwayModel>/Maktx}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								
+								<Label design="Bold" textAlign="Begin" text="Dest Quantity">
+									<layoutData>
+										<l:GridData span="L12 M12 S5" />
+									</layoutData>
+								</Label>
+							<!--	enabled ="{parts: ['MyPevLeft>/PreviousLefData/Degerleme', 'QSet>isPrevious' ], formatter: '.formatter.setlistItemTypeByPrevLeftAndItemPrev' }"-->
+								<Input value="{parts:['putAwayModel>/Einme','putAwayModel>/DiffActualQuantity'] , formatter : '.formatter.setEinme'}" enabled="false" textAlign ="End">
+									<layoutData>
+										<l:GridData span="L2 M2 S4" />
+									</layoutData>
+								</Input>
+								<Input value="{putAwayModel>/Meins}" textAlign="Begin" enabled="false">
+									<layoutData>
+										<l:GridData span="L2 M2 S3" />
+									</layoutData>
+								</Input>
+								
+								<Label design="Bold"  text="Quantity Difference"/>
+								<Input value="{diffPageModel>/actQ}" type="Number" placeholder="Actual Quantity" >
+									<layoutData>
+										<l:GridData span="L6 M6 S6" />
+									</layoutData>
+								</Input>
+								
+								<Input value="{diffPageModel>/destDiffQ}" type="Number" placeholder="Dest Diff. Quant" >
+									<layoutData>
+										<l:GridData span="L6 M6 S6" />
+									</layoutData>
+								</Input>
+								<Label text="Difference Index">
+									<layoutData>
+										<l:GridData span="L12 M12 S10" />
+									</layoutData>
+								</Label> 
+								<Input value="{diffPageModel>/diffIndex}" >
+									<layoutData>
+										<l:GridData span="L2 M2 S2" />
+									</layoutData>
+								</Input>
+								
+							</f:content>
+						</f:SimpleForm>
+						</VBox>
+					</FlexBox>
+				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<Button text="Detail" type="Transparent" press="diffDetailPressed"/>
+							<ToolbarSpacer/>
+							<Button text="Check" type="Emphasized"  press="diffCheckPressed" />
+							<ToolbarSpacer/>
+							<Button text="Confirm" type="Accept" press="diffConfirmPressed" />
+							<!--<Button icon="sap-icon://navigation-right-arrow" iconFirst="false" text="Enter" type="Accept" press="onNext" />-->
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

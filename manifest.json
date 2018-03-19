@@ -1,0 +1,295 @@
+{
+	"_version": "1.4.0",
+	"sap.app": {
+		"id": "com.btc.terminal",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZMB_WM_RF_PROCESS_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.38.3"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.btc.terminal.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.38.0",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.0"
+				},
+				"sap.m": {
+					"minVersion": "1.38.0"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.btc.terminal.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.btc.terminal.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "main",
+					"target": [
+						"main"
+					]
+				},
+				{
+					"pattern": "PutAwayMain",
+					"name": "putAwayMain",
+					"target": "putAwayMain"
+				},
+				{
+					"pattern": "TransferMain",
+					"name": "transferMain",
+					"target": "transferMain"
+				},
+				{
+					"pattern": "OutputMain",
+					"name": "outputMain",
+					"target": "outputMain"
+				},
+				{
+					"pattern": "inquiriesMain",
+					"name": "inquiriesMain",
+					"target": "inquiriesMain"
+				},
+				{
+					"pattern": "InventoryMain",
+					"name": "inventoryMain",
+					"target": "inventoryMain"
+				},
+				{
+					"pattern": "SelectStorageUnit",
+					"name": "selectStorageUnit",
+					"target": [
+						"selectStorageUnit"
+					]
+				},
+				{
+					"pattern": "InventorySelect",
+					"name": "inventorySelect",
+					"target": [
+						"inventorySelect"
+					]
+				},
+				{
+					"pattern": "TransferOrderCreate",
+					"name": "transferOrderCreate",
+					"target": [
+						"transferOrderCreate"
+					]
+				},
+				{
+					"pattern": "TransferToAddressSelect",
+					"name": "transferToAddressSelect",
+					"target": [
+						"transferToAddressSelect"
+					]
+				},
+				{
+					"pattern": "TransferToAddress",
+					"name": "transferToAddress",
+					"target": [
+						"transferToAddress"
+					]
+				},
+				{
+					"pattern": "NewWholeSalesAudit",
+					"name": "newWholeSalesAudit",
+					"target": "newWholeSalesAudit"
+				},
+				{
+					"pattern": "StockOverview",
+					"name": "stockOverview",
+					"target": "stockOverview"
+				},
+				{
+					"pattern": "DestinationInformation/{HU}",
+					"name": "destinationInfo",
+					"target": "destinationInfo"
+				},
+				{
+					"pattern": "DestinationDiff/{HU}",
+					"name": "destinationDiff",
+					"target": "destinationDiff"
+				},
+				{
+					"pattern": "WholeSalesAuditDetail/{Barcode}",
+					"name": "wholeSalesAuditDetail",
+					"target": "wholeSalesAuditDetail"
+				},
+				{
+					"pattern": "InventoryOperation/{InventoryNumber}",
+					"name": "inventoryOperation",
+					"target": "inventoryOperation"
+				}
+			],
+			"targets": {
+				"main": {
+					"viewName": "Main",
+					"viewId": "main",
+					"viewLevel": 1
+				},
+				"putAwayMain": {
+					"viewName": "PutAwayMain",
+					"viewId": "putAwayMain",
+					"viewLevel": 2
+				},
+				"transferMain": {
+					"viewName": "TransferMain",
+					"viewId": "transferMain",
+					"viewLevel": 2
+				},
+				"outputMain": {
+					"viewName": "OutputMain",
+					"viewId": "outputMain",
+					"viewLevel": 2
+				},
+				"inquiriesMain": {
+					"viewName": "InquiriesMain",
+					"viewId": "inquiriesMain",
+					"viewLevel": 2
+				},
+				"inventoryMain": {
+					"viewName": "InventoryMain",
+					"viewId": "inventoryMain",
+					"viewLevel": 2
+				},
+				"selectStorageUnit": {
+					"viewName": "SelectStorageUnit",
+					"viewId": "selectStorageUnit",
+					"viewLevel": 3
+				},
+				"inventorySelect": {
+					"viewName": "InventorySelect",
+					"viewId": "inventorySelect",
+					"viewLevel": 3
+				},
+				"transferOrderCreate": {
+					"viewName": "TransferOrderCreate",
+					"viewId": "transferOrderCreate",
+					"viewLevel": 3
+				},
+				"transferToAddressSelect": {
+					"viewName": "TransferToAddressSelect",
+					"viewId": "transferToAddressSelect",
+					"viewLevel": 3
+				},
+				"newWholeSalesAudit": {
+					"viewName": "NewWholeSalesAudit",
+					"viewId": "newWholeSalesAudit",
+					"viewLevel": 3
+				},
+				"stockOverview": {
+					"viewName": "StockOverview",
+					"viewId": "stockOverview",
+					"viewLevel": 3
+				},
+				"destinationInfo": {
+					"viewName": "DestinationInformation",
+					"viewId": "destinationInformation",
+					"viewLevel": 4
+				},
+				"transferToAddress": {
+					"viewName": "TransferToAddress",
+					"viewId": "transferToAddress",
+					"viewLevel": 4
+				},
+				"destinationDiff": {
+					"viewName": "DestinationDiff",
+					"viewId": "destinationDiff",
+					"viewLevel": 5
+				},
+				"wholeSalesAuditDetail": {
+					"viewName": "NewWholeSalesAuditDetail",
+					"viewId": "wholeSalesAuditDetail",
+					"viewLevel": 6
+				},
+				"inventoryOperation": {
+					"viewName": "InventoryOperation",
+					"viewId": "inventoryOperation",
+					"viewLevel": 4
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/z_terminal",
+		"_version": "1.1.0"
+	}
+}

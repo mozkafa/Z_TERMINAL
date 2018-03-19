@@ -1,0 +1,85 @@
+.boldText {
+    font-weight: bold;
+}
+
+.diffHeader {
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.myDisplayForm .sapMInputBaseDisabled {
+    opacity: 1;
+}
+
+.myDisplayForm .sapMInputBaseDisabledInner {
+    background: rgba(229, 229, 229, 0.3);
+}
+
+.greenNextButton > span {
+    background-color: #2b7d2b !important;
+    color: white !important;
+}
+
+.greenNextButton > div {
+    background-color: #2b7d2b !important;
+    color: white !important;
+}
+
+.greenNextButton > div:hover {
+    background-color: #319131 !important;
+    color: white !important;
+}
+
+.greenNextButton > span:hover {
+    background-color: #319131 !important;
+    color: white !important;
+}
+
+.blueButton > span {
+    background-color: #5496cd !important;
+    color: white !important;
+}
+
+.blueButton > div {
+    background-color: #5496cd !important;
+    color: white !important;
+}
+
+.blueButton > div:hover {
+    background-color: #75abd7 !important;
+    color: white !important;
+}
+
+.blueButton > span:hover {
+    background-color: #75abd7 !important;
+    color: white !important;
+}
+
+.myDisplayFormStock .sapMInputBase {
+    height: 2.8rem;
+    opacity: 1;
+}
+
+.myDisplayFormStock .sapMInputBaseInner {
+    height: 2rem;
+}
+
+.redButton > span {
+    background-color: #cc1919 !important;
+    color: white !important;
+}
+
+.redButton > div {
+    background-color: #cc1919 !important;
+    color: white !important;
+}
+
+.redButton > div:hover {
+    background-color: #e63333 !important;
+    color: white !important;
+}
+
+.redButton > span:hover {
+    background-color: #e63333 !important;
+    color: white !important;
+}

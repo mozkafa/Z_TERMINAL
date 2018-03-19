@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.TransferMain"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBackTransfer" showNavButton="true" title="Transfer">
+				<content>
+					<TileContainer id="TilecontainerTransfer">
+					<tiles>
+						<StandardTile icon="sap-icon://factory"  title="{i18n>mainViewSTOrderCreate}" info="{i18n>mainViewSTInfoTransferO}" infoState="None" press="tilePressedOrderCreate"/>
+						<StandardTile icon="sap-icon://instance"  title="{i18n>mainViewTransferToAddress}" info="{i18n>mainViewTransferToAddressInfo}" infoState="None" press="tilePressedTransferToAddress"/>
+					</tiles>
+			</TileContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

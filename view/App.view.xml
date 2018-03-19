@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.btc.terminal.controller.App" displayBlock="true" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="app" busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}"/>
+<!--	<html:audio id="idErrorSound">
+		<html:source src="/sap/bc/bsp/sap/z_terminal/beep-01a.mp3"></html:source>
+	</html:audio>-->
+</mvc:View>

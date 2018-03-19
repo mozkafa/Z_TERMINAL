@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.SelectStorageUnit"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Select Storage Unit (LM02)">
+				<content>
+					<FlexBox
+							height="100%"
+							alignItems="Center"
+							justifyContent="Center"
+							width = "100%">
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="3"
+							labelSpanM="3"
+							emptySpanL="4"
+							emptySpanM="4"
+							columnsL="1"
+							columnsM="1">
+							<f:content>
+								<!--<Label text="SU barcode" />-->
+								<SearchField placeholder="SU barcode" id="idSuBarcode" width="90%" class="sapUiSmallMargin" value="{HUModel>/barcodeNo}"  liveChange ="onSuInputLiveChange"  showSearchButton="false"/>
+									<!--<Input type="Number" value="{HUModel>/barcodeNo}" id="idSuBarcode" liveChange ="onSuInputLiveChange" >  </Input>-->
+							</f:content>
+						</f:SimpleForm>
+					</FlexBox>
+
+				</content>
+					<footer>
+					<Toolbar>
+						<content>
+							<Button icon="sap-icon://nav-back" text="{i18n>selectStorageUnitViewBack}" type="Transparent" press="onNavBack"/>
+							<ToolbarSpacer/>
+							<!--<Button icon="sap-icon://refresh" text="{i18n>selectStorageUnitViewClear}" type="Emphasized" press="onClearHU"/>-->
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://navigation-right-arrow" iconFirst="false" text="{i18n>selectStorageUnitViewNext}" type="Accept" press="onNext" />
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

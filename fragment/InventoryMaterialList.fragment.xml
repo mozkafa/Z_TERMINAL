@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Dialog showHeader="false" contentHeight="100%" contentWidth="100%">
+		<Table inset="false" items="{ path: 'MateriaList>/mItems' }">
+			<headerToolbar>
+					<Toolbar visible = "{path  : 'MainModel>/Lenvw', formatter : '.formatter.enableSetbyL'}">
+						<ToolbarSpacer></ToolbarSpacer>
+						<Label text="Ratio {MainModel>/Ratio}" />
+						
+					</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column hAlign="Center">
+					<Text text="Material"/>
+				</Column>
+				<Column hAlign="Center" width="5rem" visible="{path  : 'MainModel>/Lenvw', formatter : '.formatter.enableSetbyL'}" >
+					<Text text="Qty"/>
+				</Column>
+			<!--	<Column hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+					<Text text="Ratio"/>
+				</Column>-->
+				<Column hAlign="Center" demandPopin="true" minScreenWidth="Tablet">
+					<Text text="Storage Unt" visible="{path  : 'MainModel>/Lenvw', formatter : '.formatter.enableSetbyLenum'}" />
+				</Column>
+				<Column hAlign="Center" width="3rem">
+					<Text text="Delete"/>
+				</Column>
+				
+					
+				
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<ObjectIdentifier
+						title="{MateriaList>Matnr}"
+						text="{MateriaList>Maktx}"/>
+						<!--<Text text="{MateriaList>Matnr}"/>-->
+						<!--<Text text="{MateriaList>Lenum}" visible="{path : 'MateriaList>Lenum' , formatter : '.formatter.showStorageUnitInList'}"/>-->
+						<Input maxLength="10" value="{MateriaList>CountQuant}" enabled="{path  : 'MateriaList>Lenvw', formatter : '.formatter.enableSetbyL'}" change="onQuantityListChange" liveChange="onQuantityListLiveChange" />
+						<!-- title={parts : ['MateriaList>Lenum','MateriaList>SapQuant'] , formatter : '.formatter.showTitleLenumQuant'}-->
+						<ObjectIdentifier title="{MateriaList>Lenum}" />
+						<!--<Text text="{MateriaList>SapQuant}" />-->
+						<Button icon="sap-icon://sys-cancel" type="Reject" press="deleteIconPressed" /> <!---->
+						<!--<Button text ="Sil" type="Reject" press="deleteIconPressed" icon="sap-icon://sys-cancel"  />--> 
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<buttons>
+			
+				<Button  text="Close" press="closeMaterialListDialog"></Button>
+			
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

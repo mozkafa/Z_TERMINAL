@@ -1,0 +1,109 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.InventoryOperation"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<App>
+		<pages>
+			<Page title="Inventory Operation View" navButtonPress="onNavBack" showNavButton="true">
+				<content>
+					<FlexBox height="100%" alignItems="Start" justifyContent="Center" width="100%" class="sapUiNoMargin">
+						<VBox class="sapUiNoMargin">
+							<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="12" labelSpanM="12" labelSpanS="4" adjustLabelSpan="true"
+								emptySpanL="0" emptySpanS="0" emptySpanM="0" columnsL="3" columnsM="3" class="myDisplayForm sapUiNoMargin"> <!--myDisplayForm-->
+								<f:content>
+									<!--title="Dest Info."-->
+									<Label class="sapUiSmallMarginTop" design="Bold" textAlign="Begin" text="Address">
+									<layoutData>
+											<l:GridData span="L4 M4 S3"/>
+										</layoutData>
+									</Label>
+									<Input value="{inventoryModel>/Lgpla}" enabled="false">
+										<layoutData>
+											<l:GridData span="L4 M4 S9"/>
+										</layoutData>
+									</Input>
+									<Label labelFor="idInpStorageInv"  class="sapUiSmallMarginTop" liveChange="onStorageChange" design="Bold"  visible="{path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechkInventoryStorageVisible'}" text="Str Unt">
+									<layoutData>
+											<l:GridData span="L4 M4 S3"/>
+										</layoutData>
+									</Label>
+									<SearchField placeholder="Storage Unit" id="idInpStorageInv" value="{inventoryModel>/StorageUnit}" search="onSearch"  showSearchButton="false" visible="{path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechkInventoryStorageVisible'}">
+											<layoutData>
+											<l:GridData span="L4 M4 S9"/>
+										</layoutData>
+									</SearchField>
+									
+									<Label labelFor="idInpMaterialInv" class="sapUiSmallMarginTop" design="Bold" text="Material">
+									<layoutData>
+											<l:GridData span="L4 M4 S3"/>
+										</layoutData>
+									</Label>																												<!--onSearch    onMatnrSearch   onStorageSearch-->
+									<SearchField placeholder="Material No" id="idInpMaterialInv" liveChange="onMaterialChange"  value="{inventoryModel>/Matnr}"  search="onSearch"  showSearchButton="false" enabled="{ path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechInventoryMaterialVisible'}">
+										<layoutData>
+											<l:GridData span="L4 M4 S9"/>
+										</layoutData>
+									</SearchField>
+									<!--<Input id="idInpMaterialInv" value="{inventoryModel>/Material}" enabled="true" visible="{ path : 'inventoryModel>/IsMatScreen' , formatter : '.formatter.chechInventoryMaterialVisible'}" >
+										<layoutData>
+											<l:GridData span="L4 M4 S8"/>
+										</layoutData>
+									</Input>-->
+									
+									<!--<Input id="idInpStorageInv" value="{inventoryModel>/StorageUnit}" enabled="true" visible="{path : 'inventoryModel>/IsMatScreen' , formatter : '.formatter.chechkInventoryStorageVisible'}"  >
+										<layoutData>
+											<l:GridData span="L4 M4 S8"/>
+										</layoutData>
+									</Input>-->
+									<Label text="Desc" class="sapUiSmallMarginTop" design="Bold" >
+										<layoutData>
+											<l:GridData span="L4 M4 S2"/>
+										</layoutData>
+									</Label> <!--class="sapUiSmallMarginTop"-->
+									<Input value="{inventoryModel>/Maktx}"  enabled="false">  <!--placeholder="Description"-->
+										<layoutData>
+											<l:GridData span="L4 M4 S10"/>
+										</layoutData>
+									</Input>
+									
+									<Label labelFor="input-quant" class="sapUiSmallMarginTop" design="Bold" text="Qty" visible="{path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechkInventoryQuantityVisible'}">
+										<layoutData>
+											<l:GridData span="L4 M4 S2"/>
+										</layoutData>
+									</Label>
+									<Input  id="idInpQuantityInv" value="{inventoryModel>/Quantity}" type="Number" enabled="false" visible="{path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechkInventoryQuantityVisible'}">
+										<layoutData>
+											<l:GridData span="L4 M4 S4"/>
+										</layoutData>
+									</Input>
+									<HBox>
+										<Input value="{inventoryModel>/Meins}" enabled="false" visible="{path : 'inventoryModel>/Lenvw' , formatter : '.formatter.chechkInventoryQuantityVisible'}" >
+											<layoutData>
+												<l:GridData span="L1 M1 S1"/>
+											</layoutData>
+										</Input>
+										<Button class="sapUiTinyMarginBegin" width="4.5rem" text="Add" press="onAddPress" enabled="{ parts:['inventoryModel>/Maktx','inventoryModel>/Quantity'] , formatter : '.formatter.addButtonEnable'}">
+											<!--<layoutData>
+												<l:GridData span="L11 M11 S11"/>
+											</layoutData>-->
+										</Button>
+									</HBox>
+								</f:content>
+							</f:SimpleForm>
+							<l:Grid defaultSpan="L12 M12 S12" class="sapUiSmallMarginTop">
+								<l:content>
+									<!--Button class="sapUiNoMargin" width="7.5rem" text="Back" press="onBackPress"></Button>-->
+									<!--<Button class="sapUiNoMargin" width="7.5rem" text="Add" press="onAddPress" enabled="{ parts:['inventoryModel>/Maktx','inventoryModel>/Quantity'] , formatter : '.formatter.addButtonEnable'}"></Button>-->
+									<Button class="sapUiNoMargin" width="100%" text="List" press="onListPressed" enabled="{ path:'MateriaList>/mItems' ,formatter : '.formatter.listButtonEnable'}"></Button>
+								</l:content>
+							</l:Grid>
+							<l:Grid defaultSpan="L12 M12 S12">
+								<l:content>
+									<Button class="sapUiNoMargin" width="100%" text="Finish Counting" press="onFinishPress" enabled="{ path:'MateriaList>/mItems' ,formatter : '.formatter.listButtonEnable'}" ></Button>
+									<Button class="sapUiNoMargin" width="100%" text="Empty Storage Bin" press="emptyStorageBinPress"></Button>
+								</l:content>
+							</l:Grid>
+						</VBox>
+					</FlexBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

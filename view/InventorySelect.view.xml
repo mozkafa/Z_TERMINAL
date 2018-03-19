@@ -1,0 +1,44 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.InventorySelect"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page navButtonPress="onNavBackIS" showNavButton="true" title="Inventory Select">
+				<content>
+					<FlexBox
+							height="100%"
+							alignItems="Center"
+							justifyContent="Center"
+							width = "100%">
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="3"
+							labelSpanM="3"
+							emptySpanL="4"
+							emptySpanM="4"
+							columnsL="1"
+							columnsM="1">
+							<f:content>
+								<SearchField placeholder="Address" id="idInventoryInput" width="90%" class="sapUiSmallMargin" value="{InventorySelectModel>/Lgpla}"  liveChange ="onInvInputLiveChange" search="onInvNumSearch"  showSearchButton="false"/>
+							</f:content>
+						</f:SimpleForm>
+					</FlexBox>
+
+				</content>
+					<footer>
+					<Toolbar>
+						<content>
+							<Button icon="sap-icon://nav-back" text="{i18n>selectStorageUnitViewBack}" type="Transparent" press="onNavBackIS"/>
+							<ToolbarSpacer/>
+							<!--<Button icon="sap-icon://refresh" text="{i18n>selectStorageUnitViewClear}" type="Emphasized" press="onClearHU"/>-->
+							<ToolbarSpacer/>
+							<Button icon="sap-icon://navigation-right-arrow" iconFirst="false" text="Next" type="Accept" press="onInvNumSearch" />
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

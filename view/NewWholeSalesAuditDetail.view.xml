@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.btc.terminal.controller.NewWholeSalesAuditDetail" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>mainViewSTNewWA}" navButtonPress="onNavBack" showNavButton="true">
+				<content>
+					<FlexBox alignItems="Center" height="100%" justifyContent="Center" width="100%">
+						<f:SimpleForm columnsL="1" columnsM="1" editable="true" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"
+							layout="ResponsiveGridLayout">
+							<f:content>
+								<Label text="Truck / Wave"/>
+								<Input enabled="false" value="{wholeSalesModel>/TruckNo}">
+									<layoutData>
+										<l:GridData span="L3 M3 S6"/>
+									</layoutData>
+								</Input>
+								<Input enabled="false" value="{wholeSalesModel>/WaveNo}">
+									<layoutData>
+										<l:GridData span="L3 M3 S6"/>
+									</layoutData>
+								</Input>
+								<Label text="Forwarding Agent"/>
+								<Input enabled="false" value="{wholeSalesModel>/Tdlnr}"/>
+								<Label text="Material No"/>
+								<SearchField showSearchButton="false" search="onReadMaterialNo" maxLength="18" placeholder="Material No" value="{wholeSalesModel>/Matnr}" id="idInpMatnr"/>
+								<Label text="Package No"/>
+								<SearchField showSearchButton="false" search="onReadPackageNo" enabled="{wholeSalesModel>/MatnrCheck}" placeholder="Package No" value="{wholeSalesModel>/Exidv}" id="idInpPackage"/>
+								<Input enabled="false" textAlign="Right" value="{wholeSalesModel>/Read}">
+									<layoutData>
+										<l:GridData span="L3 M3 S5"/>
+									</layoutData>
+								</Input>
+								<Input enabled="false" value="/">
+									<layoutData>
+										<l:GridData span="L3 M3 S2"/>
+									</layoutData>
+								</Input>
+								<Input enabled="false" value="{wholeSalesModel>/All}">
+									<layoutData>
+										<l:GridData span="L3 M3 S5"/>
+									</layoutData>
+								</Input>
+							</f:content>
+						</f:SimpleForm>
+					</FlexBox>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button text="Read" press="onReadHU" type="Emphasized"/>
+						<ToolbarSpacer/>
+						<Button text="Finish Wave" press="onFinishWave" type="Accept" visible="{= ${wholeSalesModel>/Read} === ${wholeSalesModel>/All} }"/>
+						<ToolbarSpacer/>
+						<Button text="HU List" press="getHUListView" type="Emphasized"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

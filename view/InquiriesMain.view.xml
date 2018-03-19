@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.InquiriesMain"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			
+			<Page navButtonPress="onNavBack" showNavButton="true" title="Inquiries">
+				<content>
+					<TileContainer id="TilecontainerInquiries">
+				<tiles>
+						<StandardTile icon="sap-icon://product"  title="{i18n>inquiriesStock}"  infoState="None" press="tilePressedStockOverview"/>
+				</tiles>
+			</TileContainer>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

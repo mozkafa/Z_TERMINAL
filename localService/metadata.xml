@@ -1,0 +1,313 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZMB_SAPFORUM2016_SRV" xml:lang="tr" sap:schema-version="1">
+            <EntityType Name="BusinessPartner" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BpRole" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Bus. Part. Role" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmailAddress" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="E-Mail" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PhoneNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Phone No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FaxNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Phone No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddressGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Business Partner ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Company" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LegalForm" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Legal Form" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="7" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" sap:label="Changed At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="DummyFieldBpa" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="DUMMY_FIELD_BPA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="OrderHeaders" Relationship="ZMB_SAPFORUM2016_SRV.BusinessPartnerSalesOrderHeaderAsso" FromRole="FromRole_BusinessPartnerSalesOrderHeaderAsso" ToRole="ToRole_BusinessPartnerSalesOrderHeaderAsso"/>
+                <NavigationProperty Name="InvoiceHeader" Relationship="ZMB_SAPFORUM2016_SRV.BusinessPartnerInvoiceHeaderAsso" FromRole="FromRole_BusinessPartnerInvoiceHeaderAsso" ToRole="ToRole_BusinessPartnerInvoiceHeaderAsso"/>
+                <NavigationProperty Name="ToCustomerAddress" Relationship="ZMB_SAPFORUM2016_SRV.CustomerAddressBusinessPartnerAss" FromRole="ToRole_CustomerAddressBusinessPartnerAss" ToRole="FromRole_CustomerAddressBusinessPartnerAss"/>
+            </EntityType>
+            <EntityType Name="SalesOrderHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Sales Order ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="7" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" sap:label="Changed At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedByBp" Type="Edm.Boolean" Nullable="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedByBp" Type="Edm.Boolean" Nullable="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BuyerGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Net Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LifecycleStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Lifecycle Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Confirmation Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeliveryStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Ordering Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OpId" Type="Edm.String" Nullable="false" MaxLength="35" sap:label="Opportunity ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dataaging" Type="Edm.DateTime" Precision="7" sap:label="Data Filter Value for Data Aging" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dummy" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="DUMMY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OverallStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Overall Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="Items" Relationship="ZMB_SAPFORUM2016_SRV.SalesOrderHeaderItemAsso" FromRole="FromRole_SalesOrderHeaderItemAsso" ToRole="ToRole_SalesOrderHeaderItemAsso"/>
+                <NavigationProperty Name="BusinessPartner" Relationship="ZMB_SAPFORUM2016_SRV.BusinessPartnerSalesOrderHeaderAsso" FromRole="ToRole_BusinessPartnerSalesOrderHeaderAsso" ToRole="FromRole_BusinessPartnerSalesOrderHeaderAsso"/>
+            </EntityType>
+            <EntityType Name="SalesOrderItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoItemPos" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Item Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Net Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ItemAtpStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="ATP Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OpItemPos" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Item Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dummy" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="DUMMY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ItemProduct" Relationship="ZMB_SAPFORUM2016_SRV.SalesOrderItemProductAsso" FromRole="ToRole_SalesOrderItemProductAsso" ToRole="FromRole_SalesOrderItemProductAsso"/>
+            </EntityType>
+            <EntityType Name="Product" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Product ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TypeCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Type Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Category" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="7" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" sap:label="Changed At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NameGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplierGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxTarifCode" Type="Edm.Byte" Nullable="false" sap:label="Tax Tariff Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MeasureUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="WeightMeasure" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Weight" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WeightUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Price" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProductPicUrl" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Image" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Width" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Width" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Depth" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Depth" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Height" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Height" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DimUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Dimension Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="DummyFieldPd" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Placeholder only, do not use." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ProductItem" Relationship="ZMB_SAPFORUM2016_SRV.SalesOrderItemProductAsso" FromRole="FromRole_SalesOrderItemProductAsso" ToRole="ToRole_SalesOrderItemProductAsso"/>
+                <NavigationProperty Name="InvoiceItemSet" Relationship="ZMB_SAPFORUM2016_SRV.ProductInvoiceItemAsso" FromRole="FromRole_ProductInvoiceItemAsso" ToRole="ToRole_ProductInvoiceItemAsso"/>
+            </EntityType>
+            <EntityType Name="ProductText" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Dil" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="InvoiceHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DlyNoteNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Delivery Note No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="7" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedBy" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedAt" Type="Edm.DateTime" Precision="7" sap:label="Changed At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Net Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="BuyerGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DunningLevel" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Dunning Level" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaymentStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Payment Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="BusinessPartner" Relationship="ZMB_SAPFORUM2016_SRV.BusinessPartnerInvoiceHeaderAsso" FromRole="ToRole_BusinessPartnerInvoiceHeaderAsso" ToRole="FromRole_BusinessPartnerInvoiceHeaderAsso"/>
+                <NavigationProperty Name="InvoiceItemSet" Relationship="ZMB_SAPFORUM2016_SRV.InvoiceHeaderInvoiceItemAsso" FromRole="FromRole_InvoiceHeaderInvoiceItemAsso" ToRole="ToRole_InvoiceHeaderInvoiceItemAsso"/>
+            </EntityType>
+            <EntityType Name="InvoiceItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ParentKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SoItemGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="QuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="GrossAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NetAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Net Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TaxAmount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="ProductGuid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="InvItemPos" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Item Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="InvoiceHeader" Relationship="ZMB_SAPFORUM2016_SRV.InvoiceHeaderInvoiceItemAsso" FromRole="ToRole_InvoiceHeaderInvoiceItemAsso" ToRole="FromRole_InvoiceHeaderInvoiceItemAsso"/>
+                <NavigationProperty Name="Product" Relationship="ZMB_SAPFORUM2016_SRV.ProductInvoiceItemAsso" FromRole="ToRole_ProductInvoiceItemAsso" ToRole="FromRole_ProductInvoiceItemAsso"/>
+            </EntityType>
+            <EntityType Name="CustomerAddress" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NodeKey"/>
+                </Key>
+                <Property Name="NodeKey" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PostalCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Postal Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Street" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Building" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Building" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Country" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddressType" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Address Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValStartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Valid From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValEndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Valid Until" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Latitude" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="12" sap:label="Latitude" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Longitude" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="12" sap:label="Longitude" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToPartner" Relationship="ZMB_SAPFORUM2016_SRV.CustomerAddressBusinessPartnerAss" FromRole="FromRole_CustomerAddressBusinessPartnerAss" ToRole="ToRole_CustomerAddressBusinessPartnerAss"/>
+            </EntityType>
+            <EntityType Name="GrossReturn" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IpBuyerguid"/>
+                </Key>
+                <Property Name="IpBuyerguid" Type="Edm.Guid" Nullable="false" sap:label="Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Grossamount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Netamount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Net Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Taxamount" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="SalesOrderHeaderItemAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.SalesOrderHeader" Multiplicity="1" Role="FromRole_SalesOrderHeaderItemAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.SalesOrderItem" Multiplicity="*" Role="ToRole_SalesOrderHeaderItemAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderHeaderItemAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderHeaderItemAsso">
+                        <PropertyRef Name="ParentKey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="InvoiceHeaderInvoiceItemAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.InvoiceHeader" Multiplicity="1" Role="FromRole_InvoiceHeaderInvoiceItemAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.InvoiceItem" Multiplicity="*" Role="ToRole_InvoiceHeaderInvoiceItemAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_InvoiceHeaderInvoiceItemAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_InvoiceHeaderInvoiceItemAsso">
+                        <PropertyRef Name="ParentKey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerSalesOrderHeaderAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.BusinessPartner" Multiplicity="1" Role="FromRole_BusinessPartnerSalesOrderHeaderAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.SalesOrderHeader" Multiplicity="*" Role="ToRole_BusinessPartnerSalesOrderHeaderAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_BusinessPartnerSalesOrderHeaderAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_BusinessPartnerSalesOrderHeaderAsso">
+                        <PropertyRef Name="BuyerGuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="BusinessPartnerInvoiceHeaderAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.BusinessPartner" Multiplicity="1" Role="FromRole_BusinessPartnerInvoiceHeaderAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.InvoiceHeader" Multiplicity="*" Role="ToRole_BusinessPartnerInvoiceHeaderAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_BusinessPartnerInvoiceHeaderAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_BusinessPartnerInvoiceHeaderAsso">
+                        <PropertyRef Name="BuyerGuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SalesOrderItemProductAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.Product" Multiplicity="1" Role="FromRole_SalesOrderItemProductAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.SalesOrderItem" Multiplicity="1" Role="ToRole_SalesOrderItemProductAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderItemProductAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderItemProductAsso">
+                        <PropertyRef Name="ProductGuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ProductInvoiceItemAsso" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.Product" Multiplicity="1" Role="FromRole_ProductInvoiceItemAsso"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.InvoiceItem" Multiplicity="*" Role="ToRole_ProductInvoiceItemAsso"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ProductInvoiceItemAsso">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ProductInvoiceItemAsso">
+                        <PropertyRef Name="ProductGuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="CustomerAddressBusinessPartnerAss" sap:content-version="1">
+                <End Type="ZMB_SAPFORUM2016_SRV.CustomerAddress" Multiplicity="1" Role="FromRole_CustomerAddressBusinessPartnerAss"/>
+                <End Type="ZMB_SAPFORUM2016_SRV.BusinessPartner" Multiplicity="1" Role="ToRole_CustomerAddressBusinessPartnerAss"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CustomerAddressBusinessPartnerAss">
+                        <PropertyRef Name="NodeKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CustomerAddressBusinessPartnerAss">
+                        <PropertyRef Name="AddressGuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZMB_SAPFORUM2016_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="BusinessPartnerSet" EntityType="ZMB_SAPFORUM2016_SRV.BusinessPartner" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderHeaderSet" EntityType="ZMB_SAPFORUM2016_SRV.SalesOrderHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrderItemSet" EntityType="ZMB_SAPFORUM2016_SRV.SalesOrderItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProductSet" EntityType="ZMB_SAPFORUM2016_SRV.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProductTextSet" EntityType="ZMB_SAPFORUM2016_SRV.ProductText" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceHeaderSet" EntityType="ZMB_SAPFORUM2016_SRV.InvoiceHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="InvoiceItemSet" EntityType="ZMB_SAPFORUM2016_SRV.InvoiceItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="CustomerAddressSet" EntityType="ZMB_SAPFORUM2016_SRV.CustomerAddress" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="GrossReturnSet" EntityType="ZMB_SAPFORUM2016_SRV.GrossReturn" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="CustomerAddressBusinessPartnerAssSet" Association="ZMB_SAPFORUM2016_SRV.CustomerAddressBusinessPartnerAss" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CustomerAddressSet" Role="FromRole_CustomerAddressBusinessPartnerAss"/>
+                    <End EntitySet="BusinessPartnerSet" Role="ToRole_CustomerAddressBusinessPartnerAss"/>
+                </AssociationSet>
+                <AssociationSet Name="InvoiceHeaderInvoiceItemAssoSet" Association="ZMB_SAPFORUM2016_SRV.InvoiceHeaderInvoiceItemAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="InvoiceHeaderSet" Role="FromRole_InvoiceHeaderInvoiceItemAsso"/>
+                    <End EntitySet="InvoiceItemSet" Role="ToRole_InvoiceHeaderInvoiceItemAsso"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderHeaderItemAssoSet" Association="ZMB_SAPFORUM2016_SRV.SalesOrderHeaderItemAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SalesOrderHeaderSet" Role="FromRole_SalesOrderHeaderItemAsso"/>
+                    <End EntitySet="SalesOrderItemSet" Role="ToRole_SalesOrderHeaderItemAsso"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderItemProductAssoSet" Association="ZMB_SAPFORUM2016_SRV.SalesOrderItemProductAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProductSet" Role="FromRole_SalesOrderItemProductAsso"/>
+                    <End EntitySet="SalesOrderItemSet" Role="ToRole_SalesOrderItemProductAsso"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerSalesOrderHeaderAssoSet" Association="ZMB_SAPFORUM2016_SRV.BusinessPartnerSalesOrderHeaderAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BusinessPartnerSet" Role="FromRole_BusinessPartnerSalesOrderHeaderAsso"/>
+                    <End EntitySet="SalesOrderHeaderSet" Role="ToRole_BusinessPartnerSalesOrderHeaderAsso"/>
+                </AssociationSet>
+                <AssociationSet Name="ProductInvoiceItemAssoSet" Association="ZMB_SAPFORUM2016_SRV.ProductInvoiceItemAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProductSet" Role="FromRole_ProductInvoiceItemAsso"/>
+                    <End EntitySet="InvoiceItemSet" Role="ToRole_ProductInvoiceItemAsso"/>
+                </AssociationSet>
+                <AssociationSet Name="BusinessPartnerInvoiceHeaderAssoSet" Association="ZMB_SAPFORUM2016_SRV.BusinessPartnerInvoiceHeaderAsso" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="BusinessPartnerSet" Role="FromRole_BusinessPartnerInvoiceHeaderAsso"/>
+                    <End EntitySet="InvoiceHeaderSet" Role="ToRole_BusinessPartnerInvoiceHeaderAsso"/>
+                </AssociationSet>
+                <FunctionImport Name="GrossAmountInfo" ReturnType="ZMB_SAPFORUM2016_SRV.GrossReturn" EntitySet="GrossReturnSet" m:HttpMethod="POST">
+                    <Parameter Name="buyerguid" Type="Edm.String" Mode="In" MaxLength="100"/>
+                </FunctionImport>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZMB_SAPFORUM2016_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZMB_SAPFORUM2016_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

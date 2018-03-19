@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ActionSheet
+		showCancelButton="true"
+		placement="Auto">
+		<buttons>
+			<Button text="Detail"  class="blueButton" press="onActionDetailPress"/>
+			<Button text="Diff"  class="redButton" press="onActionDiffPress" />
+		</buttons>
+	</ActionSheet>
+</core:FragmentDefinition>

@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.InventoryMain"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Inventory" navButtonPress="onNavBackInvMain" showNavButton="true">
+				<content>
+						<TileContainer id="TilecontainerInventory">
+				<tiles>
+						<StandardTile icon="sap-icon://inventory"  title="{i18n>inventoryMainTile}"  infoState="None" press="tilePressedInventory"/>
+				</tiles>
+			</TileContainer>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

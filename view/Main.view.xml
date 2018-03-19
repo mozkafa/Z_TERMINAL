@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.btc.terminal.controller.Main" height="100%">
+	<Page title="{i18n>mainViewTitle}"  showHeader="false" enableScrolling="false" >
+		<content>
+			<TileContainer id="Tilecontainer">
+				<tiles>
+						<StandardTile icon="sap-icon://cause" title="{i18n>mainViewInbound}" press="tilePressedPutaway"/>
+						<StandardTile icon="sap-icon://open-command-field"  title="{i18n>mainViewTransfer}" press="tilePressedTranfer"/>
+						<StandardTile icon="sap-icon://outbox"  title="{i18n>mainViewOutput}" press="tilePressedOutput"/>
+						<StandardTile icon="sap-icon://check-availability"  title="{i18n>mainViewInquiries}" press="tilePressedInquiries"/>
+						<StandardTile icon="sap-icon://inventory"  title="{i18n>mainViewInventory}" press="tilePressedInventory"/>
+				</tiles>
+			</TileContainer>
+		</content>
+	</Page>
+</mvc:View>

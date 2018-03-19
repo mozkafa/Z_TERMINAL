@@ -1,0 +1,127 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" 
+						xmlns:f="sap.ui.layout.form"
+						xmlns:l="sap.ui.layout"
+						xmlns="sap.m">
+						<Dialog showHeader="false" contentHeight="100%" contentWidth="100%">
+							<content>
+						<FlexBox
+							height="100%"
+							alignItems="Center"
+							justifyContent="Center"
+							class="sapUiNoMargin"
+							width = "100%">
+						<VBox class="sapUiNoMargin">
+													<!--title="Material Information"-->
+						<f:SimpleForm
+							editable="true"
+							layout="ResponsiveGridLayout"
+							labelSpanL="12"
+							labelSpanM="12"
+							adjustLabelSpan="false"
+							emptySpanL="0"
+							class="myDisplayFormStock sapUiNoMargin"
+							emptySpanM="0"
+							columnsL="1"
+							columnsM="1">
+							<f:content>
+								<Label design="Bold"  text="Material" />
+								<Input value="{stockItem>/Matnr}" enabled="false" >
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								<Input value="{stockItem>/Maktx}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								 
+								<Input value="{stockItem>/Lvsme}" textAlign="Begin" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S3" />
+									</layoutData>
+								</Input>
+								<Input value="{stockItem>/Werks}" enabled="false" textAlign ="End">
+									<layoutData>
+										<l:GridData span="L2 M2 S4" />
+									</layoutData>
+								</Input>
+								<Input value="{stockItem>/Lgort}" enabled="false" textAlign ="End">
+									<layoutData>
+										<l:GridData span="L2 M2 S4" />
+									</layoutData>
+								</Input>
+								<Label design="Bold"  text="Stock Detail ">
+									<layoutData>
+										<l:GridData span="L12 M12 S5" />
+									</layoutData>
+								</Label> 
+								<Input value="{stockItem>/Seqid}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Input>
+								<Label  text="Stor. Bin">
+									<layoutData>
+										<l:GridData span="L12 M12 S3" />
+									</layoutData>
+								</Label> 
+								<Input value="{stockItem>/Lgtyp}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S6" />
+									</layoutData>
+								</Input>
+								<Input value="{stockItem>/Lgpla}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S6" />
+									</layoutData>
+								</Input>
+								<Label text="Quantity">
+									<layoutData>
+										<l:GridData span="L12 M12 S3" />
+									</layoutData>
+								</Label> 
+								<Input value="{path: 'stockItem>/Gesme', formatter: '.formatter.quantityFormatter'}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S9" />
+									</layoutData>
+								</Input>
+								<Label text="GR Date">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Label> 
+								<Input value="{path: 'stockItem>/Wdatu', formatter: '.formatter.dateFormatter'}" enabled="false">
+									<layoutData>
+										<l:GridData span="L12 M12 S8" />
+									</layoutData>
+								</Input>
+								<Input visible="{path: 'stockItem>/Lenum', formatter: '.formatter.islenumVisible'}" value="{stockItem>/Lenum}" enabled="false" class="sapUiNoMargin">
+									<layoutData>
+										<l:GridData span="L12 M12 S12" />
+									</layoutData>
+								</Input>
+								<Button enabled="{path: 'stockItem>/Seqid', formatter: '.formatter.backVisibility'}"  icon="sap-icon://navigation-left-arrow" press="backPressed">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Button>
+								<Button  text="Close" press="closeDetailDialog">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Button>
+								<Button enabled="{path: 'stockItem>/Seqid', formatter: '.formatter.forvardVisibility'}"  icon="sap-icon://navigation-right-arrow" press="forwardPresed">
+									<layoutData>
+										<l:GridData span="L12 M12 S4" />
+									</layoutData>
+								</Button>
+								
+							</f:content>
+						</f:SimpleForm>
+						</VBox>
+					</FlexBox>
+					</content>
+				
+					</Dialog>
+</core:FragmentDefinition>
